@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดวงดี - เว็บไซต์ดูดวงออนไลน์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🔮</span>
+                <span class="logo-text">ดวงดี</span>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link active" data-page="home">หน้าแรก</a>
+
+                <!-- Dropdown: ดูดวง -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">ดูดวง ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-page="fortune">ดูดวงระบบ AI</a>
+                        <a href="#" class="dropdown-item" data-page="fortune-tellers">จองหมอดู</a>
+                        <a href="#" class="dropdown-item" data-page="chatbot">ปรึกษา AI ฟรี</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown: เครื่องมือมงคล -->
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">เครื่องมือมงคล ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" data-page="calendar">ปฏิทินวันดี</a>
+                        <a href="#" class="dropdown-item" data-page="wallpaper">วอลเปเปอร์มงคล</a>
+                        <a href="#" class="dropdown-item" data-page="lucky-colors">สีมงคลประจำวัน</a>
+                    </div>
+                </div>
+
+                <a href="#" class="nav-link" data-page="shop">ร้านค้า</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-icon cart-btn" id="cartBtn">
+                    🛒
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="btn-secondary" id="loginBtn">เข้าสู่ระบบ</button>
+                <button class="btn-primary" id="registerBtn">สมัครสมาชิก</button>
+                <div class="user-menu" id="userMenu" style="display: none;">
+                    <button class="btn-user" id="userMenuBtn">
+                        <span id="userName">ผู้ใช้</span>
+                        <span class="premium-badge" id="premiumBadge" style="display: none;">PREMIUM</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" data-page="profile">โปรไฟล์</a>
+                        <a href="#" id="logoutBtn">ออกจากระบบ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Home Page -->
+        <div class="page" id="homePage">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">ค้นหาคำตอบของชีวิตคุณ</h1>
+                    <p class="hero-subtitle">ดูดวงออนไลน์ด้วย AI และหมอดูมืออาชีพ พร้อมร้านค้าของขลังครบครัน</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary btn-large" data-page="fortune">เริ่มดูดวงเลย</button>
+                        <button class="btn-secondary btn-large" data-page="fortune-tellers">เลือกหมอดู</button>
+                    </div>
+                </div>
+                <div class="hero-decoration">
+                    <div class="cosmic-orb"></div>
+                    <div class="cosmic-orb"></div>
+                    <div class="cosmic-orb"></div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">บริการของเรา</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card" data-page="fortune">
+                            <div class="feature-icon">🔮</div>
+                            <h3>ดูดวงด้วยระบบ</h3>
+                            <p>AI ดูดวงอัตโนมัติ ทั้งแบบฟรีและพรีเมียม</p>
+                        </div>
+                        <div class="feature-card" data-page="fortune-tellers">
+                            <div class="feature-icon">👤</div>
+                            <h3>จองหมอดู</h3>
+                            <p>จองนัดหมายกับหมอดูมืออาชีพ ปรึกษาแบบเห็นหน้า</p>
+                        </div>
+                        <div class="feature-card" data-page="chatbot">
+                            <div class="feature-icon">💬</div>
+                            <h3>AI แชทบอท</h3>
+                            <p>ปรึกษาฟรี 24/7 ตอบทุกคำถามเกี่ยวกับดวง</p>
+                        </div>
+                        <div class="feature-card" data-page="shop">
+                            <div class="feature-icon">🛍️</div>
+                            <h3>ร้านค้า</h3>
+                            <p>พระเครื่อง ของขลัง เครื่องรางของดี</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="how-it-works">
+                <div class="container">
+                    <h2 class="section-title">วิธีใช้งาน</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>สมัครสมาชิก</h3>
+                            <p>สร้างบัญชีฟรี ใช้งานได้ทันที</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>เลือกบริการ</h3>
+                            <p>ดูดวงด้วยระบบหรือจองหมอดู</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>รับคำทำนาย</h3>
+                            <p>ได้รับคำแนะนำและคำทำนาย</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Fortune Tellers Page -->
+        <div class="page" id="fortune-tellersPage">
+            <div class="container" style="padding: 3rem 1.5rem;">
+                <h1 class="section-title">หมอดูมืออาชีพ</h1>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">
+                    เลือกหมอดูที่ใช่สำหรับคุณ - ทั้งหมด 12 คน</p>
+
+                <!-- Fortune Tellers Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Fortune Teller 1 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👨‍🦳</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์ศิริ</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ไพ่ทาโรต์
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.9</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(156 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 15 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผู้เชี่ยวชาญด้านไพ่ทาโรต์ มีประสบการณ์กว่า 15 ปี ให้คำปรึกษาด้านความรัก การงาน และการเงิน
+                        </p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">500 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 2 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👵</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">หมอดูแม่นางนวล</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                โหราศาสตร์ไทย</p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.8</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(203 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 20 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ถ่ายทอดภูมิปัญญาไทย ดูดวงแบบดั้งเดิม แม่นยำสูง เชี่ยวชาญด้านโหราศาสตร์</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">450 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 3 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👨‍💼</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์วิชัย</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ฮวงจุ้ย</p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.7</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(98 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 12 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผู้เชี่ยวชาญด้านฮวงจุ้ยและดูบ้านดูที่ ให้คำแนะนำการจัดบ้านเพื่อโชคลาภ</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">600 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 4 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👩‍🦰</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์พรทิพย์</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ไพ่ยิปซี
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.9</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(187 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 18 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            เชี่ยวชาญไพ่ยิปซีและพรีดิกชันอนาคต คำทำนายแม่นยำและละเอียดลึกซึ้ง</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">550 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 5 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👴</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">หมอดูเก๋สมชาย</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ดูดวงทั่วไป
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.6</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(142 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 25 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ประสบการณ์ยาวนาน ดูดวงหลากหลายแขนง ให้คำปรึกษาทุกเรื่องที่คุณกังวล</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">400 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 6 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">🧑‍🔬</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์จันทร์</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ดาราศาสตร์
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.8</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(164 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 10 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผสมผสานศาสตร์ดาราศาสตร์กับโหราศาสตร์ วิเคราะห์ดวงชะตาจากดวงดาว</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">500 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 7 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👩‍🦱</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์สมหญิง</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ดูลายมือ
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.7</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(215 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 22 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผู้เชี่ยวชาญด้านการดูลายมือ บอกชะตาชีวิตจากฝ่ามือของคุณได้อย่างแม่นยำ</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">480 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 8 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👨‍🏫</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์ประสิทธิ์</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">เลขศาสตร์
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.9</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(178 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 16 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            นักเลขศาสตร์ผู้เชี่ยวชาญ วิเคราะห์ชีวิตและโชคชะตาจากตัวเลข ให้คำแนะนำเลขมงคล</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">520 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 9 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👵🏻</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">หมอดูแม่ประนอม</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ดูหน้า</p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.6</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(192 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 30 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ถ่ายทอดภูมิปัญญาการดูใบหน้า บอกนิสัยและชะตาชีวิตจากรูปหน้า</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">450 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 10 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👨‍🦲</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์เกษม</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">หยี่กี๋</p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.8</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(134 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 14 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผู้เชี่ยวชาญไม้หยี่กี๋จีน ทำนายเหตุการณ์และแนะแนวทางแก้ไขปัญหา</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">580 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 11 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">👩‍💼</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์กัญญา</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ทำนายฝัน
+                            </p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.7</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(167 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 13 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            ผู้เชี่ยวชาญด้านการแปลความหมายของฝัน บอกสัญญาณและเตือนล่วงหน้า</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">420 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+
+                    <!-- Fortune Teller 12 -->
+                    <div class="fortune-teller-card"
+                        style="background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">🧙‍♂️</div>
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.25rem;">อาจารย์วีระ</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">ดูออร่า</p>
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--secondary);">⭐ 4.9</span>
+                                <span style="color: var(--text-muted); font-size: 0.875rem;">(201 รีวิว)</span>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem;">ประสบการณ์ 11 ปี</p>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6;">
+                            นักพลังงานที่สามารถมองเห็นและอ่านออร่าของคุณได้ ให้คำแนะนำชีวิตและการเยียวยา</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-size: 1.25rem; font-weight: 700;">600 บาท</span>
+                            <span style="color: #10b981; font-size: 0.875rem;">● ว่าง</span>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">ดูรายละเอียด & จอง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lucky Calendar Page -->
+        <div class="page" id="calendarPage">
+            <div class="container" style="padding: 3rem 1.5rem;">
+                <h1 class="section-title">📅 ปฏิทินวันดี</h1>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">
+                    เลือกวันมงคลสำหรับทุกกิจกรรมสำคัญ</p>
+
+                <!-- Month Selector -->
+                <div style="max-width: 400px; margin: 0 auto 3rem; text-align: center;">
+                    <select class="form-select" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                        <option value="2">กุมภาพันธ์ 2567</option>
+                        <option value="3">มีนาคม 2567</option>
+                        <option value="4">เมษายน 2567</option>
+                        <option value="5">พฤษภาคม 2567</option>
+                    </select>
+                </div>
+
+                <!-- Lucky Days Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- Lucky Day 1 -->
+                    <div
+                        style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 2px solid var(--primary-light); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌟</div>
+                            <h3 style="color: var(--primary-light); font-size: 1.5rem;">14 กุมภาพันธ์</h3>
+                            <p style="color: var(--secondary); font-weight: 600;">วันพุธ</p>
+                        </div>
+                        <div
+                            style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                <strong>เหมาะสำหรับ:</strong>
+                            </p>
+                            <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1.5rem;">
+                                <li>เริ่มงานใหม่</li>
+                                <li>ลงทุน</li>
+                                <li>ย้ายบ้าน</li>
+                            </ul>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; text-align: center;">⏰ เวลามงคล:
+                            09:00-11:00 น.</p>
+                    </div>
+
+                    <!-- Lucky Day 2 -->
+                    <div
+                        style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(251, 146, 60, 0.1)); border: 2px solid var(--secondary); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">💝</div>
+                            <h3 style="color: var(--secondary); font-size: 1.5rem;">20 กุมภาพันธ์</h3>
+                            <p style="color: var(--primary-light); font-weight: 600;">วันอังคาร</p>
+                        </div>
+                        <div
+                            style="background: rgba(236, 72, 153, 0.1); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                <strong>เหมาะสำหรับ:</strong>
+                            </p>
+                            <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1.5rem;">
+                                <li>แต่งงาน</li>
+                                <li>หมั้น</li>
+                                <li>เริ่มความสัมพันธ์</li>
+                            </ul>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; text-align: center;">⏰ เวลามงคล:
+                            13:00-15:00 น.</p>
+                    </div>
+
+                    <!-- Lucky Day 3 -->
+                    <div
+                        style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1)); border: 2px solid #a855f7; border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">💼</div>
+                            <h3 style="color: #a855f7; font-size: 1.5rem;">25 กุมภาพันธ์</h3>
+                            <p style="color: var(--secondary); font-weight: 600;">วันอาทิตย์</p>
+                        </div>
+                        <div
+                            style="background: rgba(168, 85, 247, 0.1); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                <strong>เหมาะสำหรับ:</strong>
+                            </p>
+                            <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1.5rem;">
+                                <li>เปิดธุรกิจ</li>
+                                <li>ลงนาม</li>
+                                <li>ประชุมสำคัญ</li>
+                            </ul>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; text-align: center;">⏰ เวลามงคล:
+                            10:00-12:00 น.</p>
+                    </div>
+
+                    <!-- Lucky Day 4 -->
+                    <div
+                        style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1)); border: 2px solid #22c55e; border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏥</div>
+                            <h3 style="color: #22c55e; font-size: 1.5rem;">28 กุมภาพันธ์</h3>
+                            <p style="color: var(--primary-light); font-weight: 600;">วันพุธ</p>
+                        </div>
+                        <div
+                            style="background: rgba(34, 197, 94, 0.1); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                <strong>เหมาะสำหรับ:</strong>
+                            </p>
+                            <ul style="color: var(--text-secondary); font-size: 0.875rem; margin-left: 1.5rem;">
+                                <li>ผ่าตัด</li>
+                                <li>เริ่มการรักษา</li>
+                                <li>ตรวจสุขภาพ</li>
+                            </ul>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; text-align: center;">⏰ เวลามงคล:
+                            08:00-10:00 น.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wallpaper Page -->
+        <div class="page" id="wallpaperPage">
+            <div class="container" style="padding: 3rem 1.5rem;">
+                <h1 class="section-title">🖼️ วอลเปเปอร์มงคล</h1>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">
+                    สายมูและภาพมงคลประจำวัน เสริมดวงชีวิต</p>
+
+                <!-- Category Tabs -->
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+                    <button class="btn-primary">ทั้งหมด</button>
+                    <button class="btn-secondary">สายมู</button>
+                    <button class="btn-secondary">พระเครื่อง</button>
+                    <button class="btn-secondary">ยันต์มงคล</button>
+                    <button class="btn-secondary">ธรรมชาติ</button>
+                </div>
+
+                <!-- Wallpaper Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+                    <!-- Wallpaper 1 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #8b5cf6, #ec4899); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            🙏
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: var(--primary-light); margin-bottom: 0.5rem;">สายมูหลวงพ่อโต</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">เสริมโชคลาภ
+                                การเงินรุ่งเรือง</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper 2 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #f59e0b, #dc2626); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            🧘‍♂️
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">พระพุทธเจ้า</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">สงบจิตใจ
+                                เจริญปัญญา</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper 3 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #10b981, #3b82f6); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            🕉️
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: #10b981; margin-bottom: 0.5rem;">ยันต์มหาลาภ</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">ดึงดูดโชคลาภ
+                                เงินทอง</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper 4 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #a855f7, #06b6d4); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            💎
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: #a855f7; margin-bottom: 0.5rem;">แก้วมณี 9 ประการ</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+                                เสริมโชคตามวันเกิด</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper 5 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #ec4899, #8b5cf6); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            🌺
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">ดอกบัวศักดิ์สิทธิ์</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">ความรัก
+                                ความสัมพันธ์</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper 6 -->
+                    <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer;"
+                        onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+                        <div
+                            style="background: linear-gradient(135deg, #f59e0b, #10b981); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                            ⛰️
+                        </div>
+                        <div style="padding: 1rem;">
+                            <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">ภูเขามงคล</h3>
+                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">มั่นคง
+                                ราบรื่น</p>
+                            <button class="btn-primary" style="width: 100%;">ดาวน์โหลด</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lucky Colors Page -->
+        <div class="page" id="lucky-colorsPage">
+            <div class="container" style="padding: 3rem 1.5rem;">
+                <h1 class="section-title">🎨 สีมงคลประจำวัน</h1>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                    แต่งกายให้ตรงกับสีมงคลประจำวัน เสริมดวงชีวิต</p>
+
+                <!-- Today's Color Highlight -->
+                <div
+                    style="max-width: 600px; margin: 0 auto 4rem; background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2)); border: 2px solid var(--primary-light); border-radius: var(--radius-xl); padding: 2rem; text-align: center;">
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem;">วันนี้ {{
+                        วันอังคารที่ 11 กุมภาพันธ์ 2567 }}</p>
+                    <h2 style="color: var(--primary-light); font-size: 2.5rem; margin-bottom: 1rem;">สีชมพู (Pink)</h2>
+                    <div
+                        style="width: 120px; height: 120px; background: linear-gradient(135deg, #ec4899, #f9a8d4); border-radius: 50%; margin: 0 auto 1.5rem; box-shadow: 0 0 50px rgba(236, 72, 153, 0.5);">
+                    </div>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">สีประจำวันอังคาร
+                        นำมาซึ่งความรัก ความอบอุ่น และความสัมพันธ์ที่ดี เหมาะสำหรับการพบปะผู้คน
+                        และเริ่มต้นสิ่งใหม่ทางด้านความรัก</p>
+                    <div style="background: rgba(236, 72, 153, 0.1); padding: 1rem; border-radius: var(--radius-md);">
+                        <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 0.5rem;">💫
+                            พลังของสีชมพูวันนี้</p>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem;">ดึงดูดโอกาสด้านความรัก •
+                            เสริมเสน่ห์ มนุษยสัมพันธ์ • เพิ่มความเมตตาจากผู้อื่น</p>
+                    </div>
+                </div>
+
+                <!-- Colors for Each Day -->
+                <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 2rem;">สีมงคลประจำวัน</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+                    <!-- Sunday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันอาทิตย์</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #f87171); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);">
+                        </div>
+                        <p
+                            style="color: var(--secondary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">
+                            สีแดง</p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">พลัง ความมั่นใจ ความกล้าหาญ</p>
+                    </div>
+
+                    <!-- Monday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันจันทร์</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(253, 224, 71, 0.4);">
+                        </div>
+                        <p style="color: #fbbf24; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีเหลือง
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความมั่งคั่ง โชคลาภ ความสุข</p>
+                    </div>
+
+                    <!-- Tuesday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันอังคาร</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #ec4899, #f9a8d4); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);">
+                        </div>
+                        <p style="color: #ec4899; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีชมพู
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความรัก เสน่ห์ มนุษยสัมพันธ์</p>
+                    </div>
+
+                    <!-- Wednesday (Day) -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันพุธ (กลางวัน)</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981, #6ee7b7); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);">
+                        </div>
+                        <p style="color: #10b981; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีเขียว
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความสดชื่น การเจริญเติบโต</p>
+                    </div>
+
+                    <!-- Wednesday (Night) -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันพุธ (กลางคืน)</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #64748b, #94a3b8); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(100, 116, 139, 0.4);">
+                        </div>
+                        <p style="color: #64748b; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีเทา
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความสงบ ปัญญา การคิดวิเคราะห์</p>
+                    </div>
+
+                    <!-- Thursday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันพฤหัสบดี</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #f97316, #fb923c); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);">
+                        </div>
+                        <p style="color: #f97316; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีส้ม
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความคิดสร้างสรรค์ พลังบวก</p>
+                    </div>
+
+                    <!-- Friday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันศุกร์</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #06b6d4, #67e8f9); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);">
+                        </div>
+                        <p style="color: #06b6d4; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีฟ้า
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความสงบ การสื่อสาร ความชัดเจน</p>
+                    </div>
+
+                    <!-- Saturday -->
+                    <div
+                        style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;">
+                        <h3 style="color: var(--primary-light); margin-bottom: 1rem;">วันเสาร์</h3>
+                        <div
+                            style="width: 80px; height: 80px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 50%; margin: 0 auto 1rem; box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);">
+                        </div>
+                        <p style="color: #7c3aed; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">สีม่วง
+                        </p>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">ความสูงส่ง โชคลาภ ภาคภูมิ</p>
+                    </div>
+                </div>
+
+                <!-- Color Tips -->
+                <div
+                    style="max-width: 800px; margin: 4rem auto 0; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border-left: 4px solid var(--primary-light); padding: 2rem; border-radius: var(--radius-md);">
+                    <h3 style="color: var(--primary-light); margin-bottom: 1rem;">💡 เคล็ดลับการใช้สีมงคล</h3>
+                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
+                        <li>แต่งกายด้วยสีมงคลประจำวันเพื่อเสริมโชคลาภและพลังชีวิต</li>
+                        <li>ใช้สีมงคลในงานสำคัญ เช่น สัมภาษณ์งาน ลงนาม หรือพบปะผู้มีอำนาจ</li>
+                        <li>ถ้าไม่สะดวกแต่งกายทั้งชุด สามารถใช้อุปกรณ์เสริมสีมงคลได้ เช่น ผ้าพันคอ กระเป๋า
+                            หรือเครื่องประดับ</li>
+                        <li>หลีกเลี่ยงสีตรงข้ามกับสีมงคลประจำวัน เช่น หากวันนั้นเป็นสีแดง ควรหลีกเลี่ยงสีน้ำเงิน</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals Container -->
+    <div id="modalsContainer"></div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            💬
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🔮 ดวงดี</h3>
+                    <p>แหล่งรวมบริการดูดวงออนไลน์ครบวงจร</p>
+                </div>
+                <div class="footer-section">
+                    <h4>บริการ</h4>
+                    <a href="#" data-page="fortune">ดูดวงระบบ</a>
+                    <a href="#" data-page="fortune-tellers">จองหมอดู</a>
+                    <a href="#" data-page="shop">ร้านค้า</a>
+                </div>
+                <div class="footer-section">
+                    <h4>ติดต่อเรา</h4>
+                    <p>อีเมล: Example@gmail.com</p>
+                    <p>โทร: 02-XXX-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ดวงดี. สงวนลิขสิทธิ์.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js?v=2"></script>
+    <script src="fortune.js?v=2"></script>
+    <script src="booking.js?v=2"></script>
+    <script src="chatbot.js?v=2"></script>
+    <script src="shop.js?v=2"></script>
+    <script src="profile.js?v=2"></script>
+</body>
+
+</html>
